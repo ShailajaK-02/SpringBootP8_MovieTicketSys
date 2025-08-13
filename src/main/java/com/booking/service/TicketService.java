@@ -11,4 +11,10 @@ public interface TicketService
     List<Ticket> getAllTicketData();
 
     Ticket getTicketById(int id);
+
+    String deleteTicket(int id);
+
+    Ticket updateTicket(int id, Ticket newTicket);
+
+    String saveListTicket(List<Ticket> ticketList);
 }
