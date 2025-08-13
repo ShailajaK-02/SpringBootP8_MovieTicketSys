@@ -38,4 +38,25 @@ public class TicketController
         Ticket ticketbyid = ticketService.getTicketById(id);
         return new ResponseEntity<>(ticketbyid,HttpStatus.OK);
     }
+
+    //delete
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteTicket(@PathVariable("id") int id){
+        ticketService.deleteTicket(id);
+        return new ResponseEntity<>("Ticket deleted",HttpStatus.OK);
+    }
+
+    //update
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Ticket> updateTicket(@PathVariable("id")int id,@RequestBody Ticket ticket){
+        Ticket updateTicket = ticketService.updateTicket(id,ticket);
+        return new ResponseEntity<>(updateTicket,HttpStatus.OK);
+    }
+
+    //add List
+    @PostMapping("/addListData")
+    public ResponseEntity<String> addList(@RequestBody List<Ticket> ticketList){
+        ticketService.saveListTicket(ticketList);
+        return new ResponseEntity<>("List added",HttpStatus.OK);
+    }
 }
