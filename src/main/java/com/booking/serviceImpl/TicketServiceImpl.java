@@ -16,6 +16,7 @@ public class TicketServiceImpl implements TicketService
     private TicketRepository repository;
 
     @Override
+    //save method implemented
     public String saveTicket(Ticket ticket) {
         repository.save(ticket);
         return "Ticket Booked";
