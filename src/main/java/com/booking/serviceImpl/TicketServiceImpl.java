@@ -32,4 +32,26 @@ public class TicketServiceImpl implements TicketService
         Ticket ticketById = repository.findById(id).orElseThrow(()->new NullPointerException("Data not found"+id));
         return ticketById;
     }
+
+    @Override
+    public String deleteTicket(int id) {
+        repository.deleteById(id);
+        return "Ticket deleted";
+    }
+
+    @Override
+    public Ticket updateTicket(int id, Ticket newTicket) {
+        Ticket ticket = repository.findById(id).orElseThrow(()-> new NullPointerException("Data not found"));
+
+        ticket.setSeatsBooked(newTicket.getSeatsBooked());
+
+        Ticket updatedTicket = repository.save(ticket);
+        return updatedTicket;
+    }
+
+    @Override
+    public String saveListTicket(List<Ticket> ticketList) {
+        repository.saveAll(ticketList);
+        return "List saved";
+    }
 }
