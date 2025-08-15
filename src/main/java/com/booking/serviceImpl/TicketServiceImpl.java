@@ -43,6 +43,7 @@ public class TicketServiceImpl implements TicketService
         return "Ticket deleted";
     }
 
+    //update
     @Override
     public Ticket updateTicket(int id, Ticket newTicket) {
         Ticket ticket = repository.findById(id).orElseThrow(()-> new NullPointerException("Data not found"));
