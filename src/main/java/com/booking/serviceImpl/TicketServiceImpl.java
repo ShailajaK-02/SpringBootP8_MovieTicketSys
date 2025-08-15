@@ -29,6 +29,7 @@ public class TicketServiceImpl implements TicketService
         return ticketList;
     }
 
+    //getbyid
     @Override
     public Ticket getTicketById(int id) {
         Ticket ticketById = repository.findById(id).orElseThrow(()->new NullPointerException("Data not found"+id));
