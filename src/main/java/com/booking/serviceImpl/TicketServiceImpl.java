@@ -22,6 +22,7 @@ public class TicketServiceImpl implements TicketService
         return "Ticket Booked";
     }
 
+    //getallticket implemented
     @Override
     public List<Ticket> getAllTicketData() {
         List<Ticket> ticketList = repository.findAll();
